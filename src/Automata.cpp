@@ -1,7 +1,19 @@
+// Copyright 2025 <Copyright Owner>
+
 #include "Automata.h"
 
-optional<Automata> Automata::create_automata(vector<string>& menu,
-                                             vector<int>& prices) {
+#include <optional>
+#include <string>
+#include <unordered_map>
+#include <vector>
+
+using std::optional;
+using std::string;
+using std::unordered_map;
+using std::vector;
+
+optional<Automata> Automata::create_automata(const vector<string>& menu,
+                                             const vector<int>& prices) {
   if (menu.size() != prices.size()) {
     return std::nullopt;
   } else {
@@ -9,7 +21,7 @@ optional<Automata> Automata::create_automata(vector<string>& menu,
   }
 }
 
-Automata::Automata(vector<string>& menu_, vector<int>& prices_) {
+Automata::Automata(const vector<string>& menu_, const vector<int>& prices_) {
   cash = 0;
   menu = menu_;
   prices = prices_;
@@ -26,10 +38,10 @@ void Automata::off() { state = STATES::OFF; }
 
 int Automata::coin(BANKNOTES banknote) {
   if (state == STATES::OFF || state == STATES::COOK) {
-    return (int)banknote;
+    return static_cast<int>(banknote);
   }
 
-  cash += (int)banknote;
+  cash += static_cast<int>(banknote);
   state = STATES::ACCEPT;
   return 0;
 }

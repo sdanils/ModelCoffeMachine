@@ -1,6 +1,16 @@
-// Copyright 2022 GHA Test Team
+// Copyright 2025 sdanils
 
 #include <gtest/gtest.h>
+
+#include <optional>
+#include <string>
+#include <unordered_map>
+#include <vector>
+
+using std::optional;
+using std::string;
+using std::unordered_map;
+using std::vector;
 
 #include "Automata.h"
 

@@ -1,6 +1,14 @@
-#include <iostream>
+// Copyright 2025 <Copyright Owner>
+
+#include <optional>
+#include <string>
+#include <vector>
 
 #include "Automata.h"
+
+using std::optional;
+using std::string;
+using std::vector;
 
 int main() {
   vector<string> menu = {"kapuchino", "amerikano", "expresso"};
