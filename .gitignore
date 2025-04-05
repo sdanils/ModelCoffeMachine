@@ -4,4 +4,11 @@ src/main.obj
 src/main.pdb
 src/vc140.pdb
 
-src/.vscode/
+.vscode/
+
+build/
+
+CMakeLists.txt
+test/CMakeLists.txt
+src/CMakeLists.txt
+
