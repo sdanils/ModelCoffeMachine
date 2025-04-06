@@ -8,7 +8,4 @@ src/vc140.pdb
 
 build/
 
-CMakeLists.txt
-test/CMakeLists.txt
-src/CMakeLists.txt
 
