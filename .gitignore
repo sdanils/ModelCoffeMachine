@@ -1,11 +1,3 @@
-src/main.exe
-src/main.ilk
-src/main.obj
-src/main.pdb
-src/vc140.pdb
-
 .vscode/
-
 build/
-
 

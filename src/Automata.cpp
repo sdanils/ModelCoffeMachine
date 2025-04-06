@@ -1,7 +1,7 @@
 #include "Automata.h"
 
 optional<Automata> Automata::create_automata(vector<string>& menu,
-                                             vector<int> prices) {
+                                             vector<int>& prices) {
   if (menu.size() != prices.size()) {
     return std::nullopt;
   } else {
@@ -9,7 +9,7 @@ optional<Automata> Automata::create_automata(vector<string>& menu,
   }
 }
 
-Automata::Automata(vector<string>& menu_, vector<int> prices_) {
+Automata::Automata(vector<string>& menu_, vector<int>& prices_) {
   cash = 0;
   menu = menu_;
   prices = prices_;
@@ -25,7 +25,7 @@ void Automata::on() {
 void Automata::off() { state = STATES::OFF; }
 
 int Automata::coin(BANKNOTES banknote) {
-  if (state != STATES::WAIT && state != STATES::ACCEPT) {
+  if (state == STATES::OFF || state == STATES::COOK) {
     return (int)banknote;
   }
 
@@ -34,13 +34,15 @@ int Automata::coin(BANKNOTES banknote) {
   return 0;
 }
 
-map<string, int> Automata::et_menu() {
-  map<string, int> inter_menu;
+unordered_map<string, int> Automata::et_menu() {
+  unordered_map<string, int> inter_menu;
   for (int i = 0; i < menu.size(); i++) {
     inter_menu[menu[i]] = prices[i];
   }
   return inter_menu;
 }
+
+Automata::STATES Automata::get_state() { return state; }
 
 int Automata::find_index_drink(string drink) {
   int index = 0;
