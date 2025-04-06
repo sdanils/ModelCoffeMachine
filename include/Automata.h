@@ -1,3 +1,7 @@
+// Copyright 2025 <Copyright Owner>
+
+#pragma once
+
 #include <optional>
 #include <string>
 #include <unordered_map>
@@ -29,8 +33,8 @@ class Automata {
    * @brief Фабричный метод создания обьекта автомата
    * @details Используется для проверки передаваемых массивов
    **/
-  static optional<Automata> create_automata(vector<string>& menu,
-                                            vector<int>& prices);
+  static optional<Automata> create_automata(const vector<string>& menu,
+                                            const vector<int>& prices);
 
   void on();
   void off();
@@ -58,7 +62,7 @@ class Automata {
   vector<int> prices;
   STATES state;
 
-  Automata(vector<string>& menu, vector<int>& prices);
+  Automata(const vector<string>& menu, const vector<int>& prices);
   bool check(int need_money);
   int cook(string drink);
   int finish();
